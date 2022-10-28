@@ -23,10 +23,10 @@
 // Message to beginner C/C++ programmers about the meaning of the 'static' keyword:
 // In this demo code, we frequently use 'static' variables inside functions. A static variable persists across calls,
 // so it is essentially like a global variable but declared inside the scope of the function. We do this as a way to
-// gather code and data in the same place, to make the demo source code faster to read, faster to write, and smaller
+// gather code and resources in the same place, to make the demo source code faster to read, faster to write, and smaller
 // in size. It also happens to be a convenient way of storing simple UI related information as long as your function
 // doesn't need to be reentrant or used in multiple threads. This might be a pattern you will want to use in your code,
-// but most of the real data you would be editing is likely going to be stored outside your functions.
+// but most of the real resources you would be editing is likely going to be stored outside your functions.
 
 // The Demo code in this file is designed to be easy to copy-and-paste into your application!
 // Because of this:
@@ -342,7 +342,7 @@ void ImGui::ShowDemoWindow(bool* p_open)
     if (unsaved_document)   window_flags |= ImGuiWindowFlags_UnsavedDocument;
     if (no_close)           p_open = NULL; // Don't pass our bool* to Begin
 
-    // We specify a default position/size in case there's no data in the .ini file.
+    // We specify a default position/size in case there's no resources in the .ini file.
     // We only do it to make the demo applications a little more welcoming, but typically this isn't required.
     const ImGuiViewport* main_viewport = ImGui::GetMainViewport();
     ImGui::SetNextWindowPos(ImVec2(main_viewport->WorkPos.x + 650, main_viewport->WorkPos.y + 20), ImGuiCond_FirstUseEver);
@@ -997,7 +997,7 @@ static void ShowDemoWindowWidgets()
         ImGuiIO& io = ImGui::GetIO();
         ImGui::TextWrapped(
             "Below we are displaying the font texture (which is the only texture we have access to in this demo). "
-            "Use the 'ImTextureID' type as storage to pass pointers or identifier to your own texture data. "
+            "Use the 'ImTextureID' type as storage to pass pointers or identifier to your own texture resources. "
             "Hover the texture for a zoomed view!");
 
         // Below we are displaying the font texture because it is the only texture we have access to inside the demo!
@@ -1010,7 +1010,7 @@ static void ShowDemoWindowWidgets()
         // More:
         // - If you decided that ImTextureID = MyEngineTexture*, then you can pass your MyEngineTexture* pointers
         //   to ImGui::Image(), and gather width/height through your own functions, etc.
-        // - You can use ShowMetricsWindow() to inspect the draw data that are being passed to your renderer,
+        // - You can use ShowMetricsWindow() to inspect the draw resources that are being passed to your renderer,
         //   it will help you debug issues if you are confused about it.
         // - Consider using the lower-level ImDrawList::AddImage() API, via ImGui::GetWindowDrawList()->AddImage().
         // - Read https://github.com/ocornut/imgui/blob/master/docs/FAQ.md
@@ -1081,10 +1081,10 @@ static void ShowDemoWindowWidgets()
             flags &= ~ImGuiComboFlags_NoArrowButton; // Clear the other flag, as we cannot combine both
 
         // Using the generic BeginCombo() API, you have full control over how to display the combo contents.
-        // (your selection data could be an index, a pointer to the object, an id for the object, a flag intrusively
+        // (your selection resources could be an index, a pointer to the object, an id for the object, a flag intrusively
         // stored in the object itself, etc.)
         const char* items[] = { "AAAA", "BBBB", "CCCC", "DDDD", "EEEE", "FFFF", "GGGG", "HHHH", "IIII", "JJJJ", "KKKK", "LLLLLLL", "MMMM", "OOOOOOO" };
-        static int item_current_idx = 0; // Here we store our selection data as an index.
+        static int item_current_idx = 0; // Here we store our selection resources as an index.
         const char* combo_preview_value = items[item_current_idx];  // Pass in the preview value visible before opening the combo (it could be anything)
         if (ImGui::BeginCombo("combo 1", combo_preview_value, flags))
         {
@@ -1123,10 +1123,10 @@ static void ShowDemoWindowWidgets()
     if (ImGui::TreeNode("List boxes"))
     {
         // Using the generic BeginListBox() API, you have full control over how to display the combo contents.
-        // (your selection data could be an index, a pointer to the object, an id for the object, a flag intrusively
+        // (your selection resources could be an index, a pointer to the object, an id for the object, a flag intrusively
         // stored in the object itself, etc.)
         const char* items[] = { "AAAA", "BBBB", "CCCC", "DDDD", "EEEE", "FFFF", "GGGG", "HHHH", "IIII", "JJJJ", "KKKK", "LLLLLLL", "MMMM", "OOOOOOO" };
-        static int item_current_idx = 0; // Here we store our selection data as an index.
+        static int item_current_idx = 0; // Here we store our selection resources as an index.
         if (ImGui::BeginListBox("listbox 1"))
         {
             for (int n = 0; n < IM_ARRAYSIZE(items); n++)
@@ -1458,7 +1458,7 @@ static void ShowDemoWindowWidgets()
                     {
                         ImVector<char>* my_str = (ImVector<char>*)data->UserData;
                         IM_ASSERT(my_str->begin() == data->Buf);
-                        my_str->resize(data->BufSize); // NB: On resizing calls, generally data->BufSize == data->BufTextLen + 1
+                        my_str->resize(data->BufSize); // NB: On resizing calls, generally resources->BufSize == resources->BufTextLen + 1
                         data->Buf = my_str->begin();
                     }
                     return 0;
@@ -1653,7 +1653,7 @@ static void ShowDemoWindowWidgets()
         static double refresh_time = 0.0;
         if (!animate || refresh_time == 0.0)
             refresh_time = ImGui::GetTime();
-        while (refresh_time < ImGui::GetTime()) // Create data at fixed 60 Hz rate for the demo
+        while (refresh_time < ImGui::GetTime()) // Create resources at fixed 60 Hz rate for the demo
         {
             static float phase = 0.0f;
             values[values_offset] = cosf(phase);
@@ -1946,7 +1946,7 @@ static void ShowDemoWindowWidgets()
     IMGUI_DEMO_MARKER("Widgets/Data Types");
     if (ImGui::TreeNode("Data Types"))
     {
-        // DragScalar/InputScalar/SliderScalar functions allow various data types
+        // DragScalar/InputScalar/SliderScalar functions allow various resources types
         // - signed/unsigned
         // - 8/16/32/64-bits
         // - integer/float/double
@@ -2863,7 +2863,7 @@ static void ShowDemoWindowLayout()
             ImGui::SameLine(0.0f, spacing);
             if (ImGui::TreeNode("Node##1"))
             {
-                // Placeholder tree data
+                // Placeholder tree resources
                 for (int i = 0; i < 6; i++)
                     ImGui::BulletText("Item %d..", i);
                 ImGui::TreePop();
@@ -2879,7 +2879,7 @@ static void ShowDemoWindowLayout()
             ImGui::SameLine(0.0f, spacing); ImGui::Button("Button##2");
             if (node_open)
             {
-                // Placeholder tree data
+                // Placeholder tree resources
                 for (int i = 0; i < 6; i++)
                     ImGui::BulletText("Item %d..", i);
                 ImGui::TreePop();
@@ -3555,7 +3555,7 @@ static void ShowDemoWindowPopups()
     }
 }
 
-// Dummy data structure that we use for the Table demo.
+// Dummy resources structure that we use for the Table demo.
 // (pre-C++11 doesn't allow us to instantiate ImVector<MyItem> template if this structure if defined inside the demo function)
 namespace
 {
@@ -3580,7 +3580,7 @@ struct MyItem
 
     // We have a problem which is affecting _only this demo_ and should not affect your code:
     // As we don't rely on std:: or other third-party library to compile dear imgui, we only have reliable access to qsort(),
-    // however qsort doesn't allow passing user data to comparing function.
+    // however qsort doesn't allow passing user resources to comparing function.
     // As a workaround, we are storing the sort specs in a static/global for the comparing function to access.
     // In your own use case you would probably pass the sort specs to your sorting/comparing functions directly and not use a global.
     // We could technically call ImGui::TableGetSortSpecs() in CompareWithSortSpecs(), but considering that this function is called
@@ -3794,7 +3794,7 @@ static void ShowDemoWindowTables()
 
         // [Method 3] We call TableNextColumn() _before_ each cell. We never call TableNextRow(),
         // as TableNextColumn() will automatically wrap around and create new roes as needed.
-        // This is generally more convenient when your cells all contains the same type of data.
+        // This is generally more convenient when your cells all contains the same type of resources.
         HelpMarker(
             "Only using TableNextColumn(), which tends to be convenient for tables where every cells contains the same type of contents.\n"
             "This is also more similar to the old NextColumn() function of the Columns API, and provided to facilitate the Columns->Tables API transition.");
@@ -5077,7 +5077,7 @@ static void ShowDemoWindowTables()
             ImGui::TableSetupScrollFreeze(0, 1); // Make row always visible
             ImGui::TableHeadersRow();
 
-            // Sort our data if sort specs have been changed!
+            // Sort our resources if sort specs have been changed!
             if (ImGuiTableSortSpecs* sorts_specs = ImGui::TableGetSortSpecs())
                 if (sorts_specs->SpecsDirty)
                 {
@@ -5094,7 +5094,7 @@ static void ShowDemoWindowTables()
             while (clipper.Step())
                 for (int row_n = clipper.DisplayStart; row_n < clipper.DisplayEnd; row_n++)
                 {
-                    // Display a data item
+                    // Display a resources item
                     MyItem* item = &items[row_n];
                     ImGui::PushID(item->ID);
                     ImGui::TableNextRow();
@@ -5292,7 +5292,7 @@ static void ShowDemoWindowTables()
             ImGui::TableSetupColumn("Hidden",       ImGuiTableColumnFlags_DefaultHide | ImGuiTableColumnFlags_NoSort);
             ImGui::TableSetupScrollFreeze(freeze_cols, freeze_rows);
 
-            // Sort our data if sort specs have been changed!
+            // Sort our resources if sort specs have been changed!
             ImGuiTableSortSpecs* sorts_specs = ImGui::TableGetSortSpecs();
             if (sorts_specs && sorts_specs->SpecsDirty)
                 items_need_sort = true;
@@ -5306,14 +5306,14 @@ static void ShowDemoWindowTables()
             items_need_sort = false;
 
             // Take note of whether we are currently sorting based on the Quantity field,
-            // we will use this to trigger sorting when we know the data of this column has been modified.
+            // we will use this to trigger sorting when we know the resources of this column has been modified.
             const bool sorts_specs_using_quantity = (ImGui::TableGetColumnFlags(3) & ImGuiTableColumnFlags_IsSorted) != 0;
 
             // Show headers
             if (show_headers)
                 ImGui::TableHeadersRow();
 
-            // Show data
+            // Show resources
             // FIXME-TABLE FIXME-NAV: How we can get decent up/down even though we have the buttons here?
             ImGui::PushButtonRepeat(true);
 #if 1
@@ -5372,7 +5372,7 @@ static void ShowDemoWindowTables()
                     if (ImGui::TableSetColumnIndex(1))
                         ImGui::TextUnformatted(item->Name);
 
-                    // Here we demonstrate marking our data set as needing to be sorted again if we modified a quantity,
+                    // Here we demonstrate marking our resources set as needing to be sorted again if we modified a quantity,
                     // and we are currently sorting on the column showing the Quantity.
                     // To avoid triggering a sort while holding the button, we only trigger it when the button has been released.
                     // You will probably need a more advanced system in your code if you want to automatically sort when a specific entry changes.
@@ -5702,7 +5702,7 @@ static void ShowDemoWindowMisc()
         IMGUI_DEMO_MARKER("Inputs, Navigation & Focus/Keyboard, Gamepad & Navigation State");
         if (ImGui::TreeNode("Keyboard, Gamepad & Navigation State"))
         {
-            // We iterate both legacy native range and named ImGuiKey ranges, which is a little odd but this allow displaying the data for old/new backends.
+            // We iterate both legacy native range and named ImGuiKey ranges, which is a little odd but this allow displaying the resources for old/new backends.
             // User code should never have to go through such hoops: old code may use native keycodes, new code may use ImGuiKey codes.
 #ifdef IMGUI_DISABLE_OBSOLETE_KEYIO
             struct funcs { static bool IsLegacyNativeDupe(ImGuiKey) { return false; } };
@@ -6279,7 +6279,7 @@ void ImGui::ShowStyleEditor(ImGuiStyle* ref)
 
             ImGui::Checkbox("Anti-aliased lines use texture", &style.AntiAliasedLinesUseTex);
             ImGui::SameLine();
-            HelpMarker("Faster lines using texture data. Require backend to render with bilinear filtering (not point/nearest filtering).");
+            HelpMarker("Faster lines using texture resources. Require backend to render with bilinear filtering (not point/nearest filtering).");
 
             ImGui::Checkbox("Anti-aliased fill", &style.AntiAliasedFill);
             ImGui::PushItemWidth(ImGui::GetFontSize() * 8);
@@ -6462,7 +6462,7 @@ static void ShowExampleMenuFile()
 //-----------------------------------------------------------------------------
 
 // Demonstrate creating a simple console window, with scrolling, filtering, completion and history.
-// For the console example, we are using a more C++ like approach of declaring a class to hold both data and functions.
+// For the console example, we are using a more C++ like approach of declaring a class to hold both resources and functions.
 struct ExampleAppConsole
 {
     char                  InputBuf[256];
@@ -6543,7 +6543,7 @@ struct ExampleAppConsole
 
         ImGui::TextWrapped(
             "This example implements a console with basic coloring, completion (TAB key) and history (Up/Down keys). A more elaborate "
-            "implementation may want to store entries along with extra data such as timestamp, emitter, etc.");
+            "implementation may want to store entries along with extra resources such as timestamp, emitter, etc.");
         ImGui::TextWrapped("Enter 'HELP' for help.");
 
         // TODO: display items starting from the bottom
@@ -6710,7 +6710,7 @@ struct ExampleAppConsole
 
     int     TextEditCallback(ImGuiInputTextCallbackData* data)
     {
-        //AddLog("cursor: %d, selection: %d-%d", data->CursorPos, data->SelectionStart, data->SelectionEnd);
+        //AddLog("cursor: %d, selection: %d-%d", resources->CursorPos, resources->SelectionStart, resources->SelectionEnd);
         switch (data->EventFlag)
         {
         case ImGuiInputTextFlags_CallbackCompletion:
@@ -6797,7 +6797,7 @@ struct ExampleAppConsole
                             HistoryPos = -1;
                 }
 
-                // A better implementation would preserve the data on the current input line along with cursor position.
+                // A better implementation would preserve the resources on the current input line along with cursor position.
                 if (prev_history_pos != HistoryPos)
                 {
                     const char* history_str = (HistoryPos >= 0) ? History[HistoryPos] : "";
@@ -6915,10 +6915,10 @@ struct ExampleAppLog
             // within the visible area.
             // If you have tens of thousands of items and their processing cost is non-negligible, coarse clipping them
             // on your side is recommended. Using ImGuiListClipper requires
-            // - A) random access into your data
+            // - A) random access into your resources
             // - B) items all being the  same height,
             // both of which we can handle since we an array pointing to the beginning of each line of text.
-            // When using the filter (in the block of code above) we don't have random access into the data to display
+            // When using the filter (in the block of code above) we don't have random access into the resources to display
             // anymore, which is why we don't use the clipper. Storing or skimming through the search result would make
             // it possible (and would be recommended if you want to search through tens of thousands of entries).
             ImGuiListClipper clipper;
@@ -7106,14 +7106,14 @@ static void ShowExampleAppPropertyEditor(bool* p_open)
 
     HelpMarker(
         "This example shows how you may implement a property editor using two columns.\n"
-        "All objects/fields data are dummies here.\n"
+        "All objects/fields resources are dummies here.\n"
         "Remember that in many simple cases, you can use ImGui::SameLine(xxx) to position\n"
         "your cursor horizontally instead of using the Columns() API.");
 
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(2, 2));
     if (ImGui::BeginTable("split", 2, ImGuiTableFlags_BordersOuter | ImGuiTableFlags_Resizable))
     {
-        // Iterate placeholder objects (all the same data)
+        // Iterate placeholder objects (all the same resources)
         for (int obj_i = 0; obj_i < 4; obj_i++)
         {
             ShowPlaceholderObject("Object", obj_i);

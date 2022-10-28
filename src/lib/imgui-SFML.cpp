@@ -143,7 +143,7 @@ std::string s_clipboardText;
 void loadMouseCursor(ImGuiMouseCursor imguiCursorType, sf::Cursor::Type sfmlCursorType);
 void updateMouseCursor(sf::Window& window);
 
-// data
+// resources
 const unsigned int NULL_JOYSTICK_ID = sf::Joystick::Count;
 const unsigned int NULL_JOYSTICK_BUTTON = sf::Joystick::ButtonCount;
 

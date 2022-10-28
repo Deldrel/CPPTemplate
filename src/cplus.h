@@ -14,22 +14,15 @@ inline void print(Template t) {
 
 template<typename Template>
 inline void print(const std::vector<Template> &vector) {
-    for (Template i: vector) {
-        std::cout << i << " ";
-    }
+    std::string string;
+    string.reserve(vector.size());
+    for (Template i : vector) string += std::to_string(i) + " ";
+    std::cout << string << std::endl;
 }
 
 template<typename Template>
 inline void println(Template t) {
     std::cout << t << std::endl;
-}
-
-template<typename Template>
-inline void println(const std::vector<Template> &vector) {
-    for (Template i: vector) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
 }
 
 inline int random(int min, int max) {

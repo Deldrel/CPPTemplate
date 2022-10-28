@@ -3,6 +3,7 @@
 
 int main() {
     Core core;
-    if (core.init() == EXIT_SUCCESS) core.loop();
+    assert(core.init());
+    core.loop();
     return EXIT_SUCCESS;
 }

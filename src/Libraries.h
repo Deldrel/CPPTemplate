@@ -36,11 +36,9 @@
 #include <utility>
 #include <vector>
 
-///"../src/data/LEMONMILK-Regular.otf"
-
 inline void embraceTheDarkness() {
     ImGuiIO io = ImGui::GetIO();
-    io.Fonts->AddFontFromFileTTF("../src/data/LEMONMILK-Regular.otf", 13);
+    io.Fonts->AddFontFromFileTTF("../../resources/LEMONMILK-Regular.otf", 13);
     if (!ImGui::SFML::UpdateFontTexture()) std::cerr << "Can not update font" << std::endl;
 
     ImVec4* colors = ImGui::GetStyle().Colors;

@@ -11,7 +11,7 @@ int Core::init() {
     window.setFramerateLimit(60);
     ImGui::SFML::Init(window);
     embraceTheDarkness();
-    return EXIT_SUCCESS;
+    return 1;
 }
 
 void Core::loop() {
