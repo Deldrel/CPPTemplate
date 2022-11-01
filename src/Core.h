@@ -3,6 +3,10 @@
 
 #include "Libraries.h"
 
+#define width 600
+#define height 600
+#define loop_limit 60
+
 class Core {
 
 private:

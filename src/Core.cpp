@@ -7,7 +7,7 @@ Core::~Core() {
 }
 
 int Core::init() {
-    window.create(sf::VideoMode(600, 600), "Core", sf::Style::Close);
+    window.create(sf::VideoMode(width, height), "Core", sf::Style::Close);
     window.setFramerateLimit(60);
     ImGui::SFML::Init(window);
     embraceTheDarkness();
@@ -15,11 +15,17 @@ int Core::init() {
 }
 
 void Core::loop() {
+    sf::Time elapsedTime = sf::Time::Zero;
+
     while (window.isOpen()) {
+        elapsedTime += m_deltaClock.restart();
         handleEvents();
-        ImGui::SFML::Update(window, m_deltaClock.restart());
-        imgui();
-        display();
+
+        if (elapsedTime > sf::seconds(1.f / loop_limit)) {
+            ImGui::SFML::Update(window, m_deltaClock.restart());
+            imgui();
+            display();
+        }
     }
 }
 

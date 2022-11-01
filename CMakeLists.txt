@@ -16,7 +16,7 @@ target_include_directories(
         PRIVATE ${PROJECT_SOURCE_DIR}/vendors/sfml/include/
 )
 
-target_link_libraries(${PROJECT_NAME} sfml-graphics sfml-window sfml-system)
+target_link_libraries(${PROJECT_NAME} sfml-system sfml-window sfml-graphics sfml-audio sfml-network)
 
 find_package(OpenGL REQUIRED)
 target_link_libraries(${PROJECT_NAME} glu32 opengl32)
