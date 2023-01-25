@@ -2,10 +2,9 @@
 #define TEMPLATE_CPLUS_H
 
 #include <iostream>
-#include <vector>
 #include <ctime>
+#include <chrono>
 #include <random>
-#include <cmath>
 
 ///Prints parameter without ending the line
 template<typename Template>

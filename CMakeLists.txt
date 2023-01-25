@@ -11,10 +11,7 @@ file(GLOB_RECURSE SOURCE_FILES src/*.cpp)
 file(GLOB_RECURSE HEADER_FILES src/*.h)
 add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES})
 
-target_include_directories(
-        ${PROJECT_NAME}
-        PRIVATE ${PROJECT_SOURCE_DIR}/vendors/sfml/include/
-)
+target_include_directories(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/vendors/sfml/include/)
 
 target_link_libraries(${PROJECT_NAME} sfml-system sfml-window sfml-graphics sfml-audio sfml-network)
 

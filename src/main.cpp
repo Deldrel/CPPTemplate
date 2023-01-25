@@ -1,7 +1,8 @@
 #include "Libraries.h"
 #include "Core.h"
 
-int main() {
+int main()
+{
     Core core;
     assert(core.init());
     core.loop();

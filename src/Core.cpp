@@ -4,15 +4,19 @@ Core::Core() = default;
 
 Core::~Core()
 {
+    println("Leaving...");
     ImGui::SFML::Shutdown();
+    print(" Done!");
 }
 
 int Core::init()
 {
+    println("Initializing...");
     window.create(sf::VideoMode(width, height), "Core", sf::Style::Close);
     window.setFramerateLimit(60);
     ImGui::SFML::Init(window);
-    embraceTheDarkness();
+    //IOThemeEmbraceTheDarkness();
+    print(" Done!");
     return 1;
 }
 
@@ -26,7 +30,6 @@ void Core::loop()
         if (elapsedTime > sf::seconds(1.f / loop_limit)) {
             handleEvents();
             ImGui::SFML::Update(window, m_deltaClock.restart());
-            imgui();
             display();
         }
     }
@@ -53,6 +56,7 @@ void Core::handleEvents()
 void Core::display()
 {
     window.clear();
+    imgui();
     ImGui::SFML::Render(window);
 
     //render
@@ -62,5 +66,5 @@ void Core::display()
 
 void Core::imgui()
 {
-
+    ImGui::ShowMetricsWindow();
 }

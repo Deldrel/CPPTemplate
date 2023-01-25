@@ -2,12 +2,6 @@
 #define TEMPLATE_CORE_H
 
 #include "Libraries.h"
-#include "cplus.h"
-#include "sfmlplus.h"
-
-#define width 600
-#define height 600
-#define loop_limit 60
 
 class Core {
 

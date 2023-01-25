@@ -12,6 +12,8 @@
 #include <SFML/Window.hpp>
 #include "lib/imgui.h"
 #include "lib/imgui-SFML.h"
+#include "lib/cplus.h"
+#include "lib/sfmlplus.h"
 
 // std libraries
 #include <algorithm>
@@ -33,5 +35,7 @@
 #include <unordered_map>
 #include <utility>
 #include <vector>
+
+#include "parameters.h"
 
 #endif
