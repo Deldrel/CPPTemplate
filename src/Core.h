@@ -2,6 +2,7 @@
 #define TEMPLATE_CORE_H
 
 #include "Libraries.h"
+#include "SpriteManager.h"
 
 class Core {
 
@@ -13,6 +14,8 @@ private:
 
     sf::Clock m_deltaClock;
 
+    SpriteManager spriteManager;
+
 public:
 
     Core();
@@ -21,7 +24,7 @@ public:
 
     int init();
 
-    void loop();
+    void run();
 
     void handleEvents();
 

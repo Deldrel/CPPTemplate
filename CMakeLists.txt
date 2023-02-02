@@ -7,9 +7,9 @@ project(${PROJECT_NAME})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin/)
 add_subdirectory(vendors/sfml)
 
-file(GLOB_RECURSE SOURCE_FILES src/*.cpp)
-file(GLOB_RECURSE HEADER_FILES src/*.h)
-add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES})
+file(GLOB_RECURSE SOURCE_FILES src/*)
+file(GLOB_RECURSE Example_FILES 10_Network/*)
+add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${Example_FILES})
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/vendors/sfml/include/)
 

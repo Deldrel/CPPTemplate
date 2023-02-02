@@ -2,26 +2,27 @@
 
 Core::Core() = default;
 
-Core::~Core()
-{
+Core::~Core() {
     println("Leaving...");
     ImGui::SFML::Shutdown();
-    print(" Done!");
+    println(" Done!");
 }
 
-int Core::init()
-{
+int Core::init() {
     println("Initializing...");
+
     window.create(sf::VideoMode(width, height), "Core", sf::Style::Close);
     window.setFramerateLimit(60);
     ImGui::SFML::Init(window);
     //IOThemeEmbraceTheDarkness();
-    print(" Done!");
+
+    assert(spriteManager.init());
+
+    println(" Done!");
     return 1;
 }
 
-void Core::loop()
-{
+void Core::run() {
     sf::Time elapsedTime = sf::Time::Zero;
 
     while (window.isOpen()) {
@@ -35,8 +36,7 @@ void Core::loop()
     }
 }
 
-void Core::handleEvents()
-{
+void Core::handleEvents() {
     while (window.pollEvent(event)) {
         ImGui::SFML::ProcessEvent(window, event);
 
@@ -53,18 +53,16 @@ void Core::handleEvents()
     }
 }
 
-void Core::display()
-{
+void Core::display() {
     window.clear();
     imgui();
     ImGui::SFML::Render(window);
-
-    //render
+    
+    window.draw(spriteManager.getSprite(Pieces));
 
     window.display();
 }
 
-void Core::imgui()
-{
-    ImGui::ShowMetricsWindow();
+void Core::imgui() {
+    //ImGui::ShowMetricsWindow();
 }
