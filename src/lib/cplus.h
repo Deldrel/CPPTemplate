@@ -5,6 +5,7 @@
 #include <ctime>
 #include <chrono>
 #include <random>
+#include <functional>
 
 ///Prints parameter without ending the line
 template<typename Template>
@@ -61,6 +62,14 @@ template<typename Template>
 inline void constraint(Template &t, int lower, int upper) {
     if (t < lower) t = lower;
     if (t > upper) t = upper;
+}
+
+inline void benchmark(const std::function<void()>& func) {
+    auto ti = std::chrono::high_resolution_clock::now();
+    func();
+    auto tf = std::chrono::high_resolution_clock::now();
+    auto d = std::chrono::duration_cast<std::chrono::milliseconds>(tf - ti);
+    println("Execution time: " + std::to_string(d.count()) + " ms");
 }
 
 #endif

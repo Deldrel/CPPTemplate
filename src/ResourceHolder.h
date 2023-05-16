@@ -19,7 +19,8 @@ public:
 
     void load(Identifier id, const std::string &filename, sf::Vector2i size) {
         std::unique_ptr<Resource> resource(new Resource());
-        resource->loadFromImage(newImage(filename, size.x, size.y));
+        if (!resource->loadFromImage(newImage(filename, size.x, size.y)))
+            throw std::runtime_error("ResourceHolder::load - Failed to load " + filename);
         insertResource(id, std::move(resource));
     }
 

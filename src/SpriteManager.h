@@ -1,6 +1,7 @@
 #ifndef TEMPLATE_SPRITEMANAGER_H
 #define TEMPLATE_SPRITEMANAGER_H
 
+#include <ostream>
 #include "Libraries.h"
 #include "ResourceHolder.h"
 

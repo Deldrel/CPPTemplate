@@ -54,15 +54,19 @@ void Core::handleEvents() {
 }
 
 void Core::display() {
-    window.clear();
+    window.clear(sf::Color::Yellow);
     imgui();
     ImGui::SFML::Render(window);
-    
-    window.draw(spriteManager.getSprite(Pieces));
+
+    sf::Sprite sp = spriteManager.getSprite(Pieces);
+    window.draw(sp);
+    sp.setTextureRect({0, 0, 100, 100});
+    sp.setPosition(400, 400);
+    window.draw(sp);
 
     window.display();
 }
 
 void Core::imgui() {
-    //ImGui::ShowMetricsWindow();
+    ImGui::ShowMetricsWindow();
 }
